@@ -1,0 +1,20 @@
+{
+  "devDependencies": {
+    "parcel": "^2.0.0-alpha.3.2"
+  },
+  "dependencies": {
+    "d3": "^5.14.2",
+    "d3-geo": "^1.11.9",
+    "date-fns": "^2.8.1",
+    "esm": "^3.2.25",
+    "lodash-es": "^4.17.15",
+    "topojson": "^3.0.2",
+    "world-atlas": "^2.0.2"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "create-trip-history": "node -r esm create-trip-history.js"
+  }
+}
