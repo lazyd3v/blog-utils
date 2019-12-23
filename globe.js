@@ -1,5 +1,5 @@
-import * as d3 from "d3";
-import * as topojson from "topojson";
+import * as d3 from "./d3";
+import { feature as topojsonFeature } from "topojson-client";
 import worldAtlas from "world-atlas/countries-110m.json";
 
 import {
@@ -36,7 +36,7 @@ function drawGlobe() {
   // Countries
   svg
     .selectAll(".segment")
-    .data(topojson.feature(worldAtlas, worldAtlas.objects.countries).features)
+    .data(topojsonFeature(worldAtlas, worldAtlas.objects.countries).features)
     .enter()
     .append("path")
     .attr("class", "segment")
