@@ -73,6 +73,20 @@ export const TRIPS = [
 
   // 2013
   {
+    countryId: "643",
+    city: "Moscow",
+    date: "23-01-2013",
+    lat: 55.755825,
+    long: 37.617298
+  },
+  {
+    countryId: "643",
+    city: "Moscow",
+    date: "02-07-2013",
+    lat: 55.755825,
+    long: 37.617298
+  },
+  {
     countryId: "356",
     city: "Goa",
     date: "12-11-2013",
@@ -81,6 +95,20 @@ export const TRIPS = [
   },
 
   // 2014
+  {
+    countryId: "643",
+    city: "Moscow",
+    date: "23-01-2014",
+    lat: 55.755825,
+    long: 37.617298
+  },
+  {
+    countryId: "643",
+    city: "Moscow",
+    date: "02-07-2014",
+    lat: 55.755825,
+    long: 37.617298
+  },
   {
     countryId: "643",
     city: "Yoshkar Ola",
@@ -126,6 +154,13 @@ export const TRIPS = [
     date: "29-07-2017",
     lat: 50.075539,
     long: 14.4378
+  },
+  {
+    countryId: "276",
+    city: "Saxon Switzerland",
+    date: "01-08-2017",
+    lat: 50.917675,
+    long: 14.319574
   },
 
   // 2018
@@ -302,6 +337,13 @@ export const UNIQUE_PLACES_VISITED = uniqWith(
   TRIPS,
   (a, b) => a.lat === b.lat && a.long === b.long
 );
+UNIQUE_PLACES_VISITED.push({
+  countryId: "643",
+  city: "Kazan",
+  date: "29-05-1997",
+  lat: 55.830433,
+  long: 49.066082
+});
 
 export const COUNTRY_EMOJI = {
   "040": "🇦🇹",
