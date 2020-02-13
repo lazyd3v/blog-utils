@@ -33,16 +33,23 @@ export const TRIPS = [
     long: 12.5663
   },
   {
+    countryId: "674",
+    city: "San Marino",
+    date: "24-08-2010",
+    lat: 43.94236,
+    long: 12.457777
+  },
+  {
     countryId: "380",
     city: "Venice",
-    date: "23-08-2010",
+    date: "25-08-2010",
     lat: 45.440845,
     long: 12.315515
   },
   {
     countryId: "380",
     city: "Florence",
-    date: "23-08-2010",
+    date: "26-08-2010",
     lat: 43.769562,
     long: 11.255814
   },
@@ -397,5 +404,6 @@ export const COUNTRY_EMOJI = {
   "428": "🇱🇻",
   "528": "🇳🇱",
   "643": "🇷🇺",
+  "674": "🇸🇲",
   "724": "🇪🇸"
 };
