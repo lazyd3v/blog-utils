@@ -9,7 +9,6 @@ import {
   COLORS,
   MARKER_RADIUS
 } from "./config";
-import { UNIQUE_PLACES_VISITED, UNIQUE_COUNTRIES_VISITED } from "./data";
 
 const width = 500;
 const height = 500;
@@ -20,10 +19,19 @@ const markerGroup = svg.append("g");
 const projection = d3.geoOrthographic().translate(center);
 const path = d3.geoPath().projection(projection);
 
-drawGlobe();
-enableRotation();
+function initialize() {
+  fetch("/globe-meta.json")
+    .then(res => res.json())
+    .then(metaData => {
+      drawGlobe(metaData);
+      enableRotation(metaData);
+    });
+}
 
-function drawGlobe() {
+function drawGlobe(metaData) {
+  const { countries } = metaData;
+  const countriesSet = new Set(countries);
+
   // Base
   svg
     .append("g")
@@ -44,24 +52,23 @@ function drawGlobe() {
     .style("stroke", COLORS.border)
     .style("stroke-width", "1px")
     .style("fill", (d, i) => {
-      return UNIQUE_COUNTRIES_VISITED.has(d.id)
-        ? COLORS.visited
-        : COLORS.country;
+      return countriesSet.has(d.id) ? COLORS.visited : COLORS.country;
     });
 
-  drawMarkers();
+  drawMarkers(metaData);
 }
 
-function enableRotation() {
+function enableRotation(metaData) {
   d3.timer(function(elapsed) {
     projection.rotate([SPEED * elapsed - 120, VERTICAL_TILT, HORIZONTAL_TILT]);
     svg.selectAll("path").attr("d", path);
-    drawMarkers();
+    drawMarkers(metaData);
   });
 }
 
-function drawMarkers() {
-  const markers = markerGroup.selectAll("circle").data(UNIQUE_PLACES_VISITED);
+function drawMarkers(metaData) {
+  const { places } = metaData;
+  const markers = markerGroup.selectAll("circle").data(places);
 
   markers
     .enter()
@@ -82,3 +89,5 @@ function drawMarkers() {
     this.parentNode.appendChild(this);
   });
 }
+
+initialize();

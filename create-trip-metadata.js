@@ -1,4 +1,9 @@
-import { TRIPS, COUNTRY_EMOJI } from "./data.js";
+import {
+  UNIQUE_PLACES_VISITED,
+  UNIQUE_COUNTRIES_VISITED,
+  TRIPS,
+  COUNTRY_EMOJI
+} from "./data.js";
 import fs from "fs";
 
 function formatDate(dateStr) {
@@ -45,7 +50,13 @@ function generateJSON() {
     }
   }
 
-  fs.writeFileSync("./dist/trips.json", JSON.stringify(trips));
+  const globeMetaData = {
+    places: UNIQUE_PLACES_VISITED,
+    countries: Array.from(UNIQUE_COUNTRIES_VISITED)
+  };
+
+  fs.writeFileSync("./static/trips.json", JSON.stringify(trips));
+  fs.writeFileSync("./static/globe-meta.json", JSON.stringify(globeMetaData));
 }
 
 generateJSON();
