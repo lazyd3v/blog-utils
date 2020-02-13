@@ -325,6 +325,43 @@ export const TRIPS = [
     date: "04-10-2019",
     lat: 55.675757,
     long: 12.569023
+  },
+  {
+    countryId: "643",
+    city: "Kazan",
+    date: "28-12-2019",
+    lat: 55.830433,
+    long: 49.066082
+  },
+
+  // 2020
+  {
+    countryId: "643",
+    city: "Moscow",
+    date: "25-01-2020",
+    lat: 55.755825,
+    long: 37.617298
+  },
+  {
+    countryId: "144",
+    city: "Weligama",
+    date: "27-01-2020",
+    lat: 5.977378,
+    long: 80.428848
+  },
+  {
+    countryId: "144",
+    city: "Nuwara Eliya",
+    date: "03-02-2020",
+    lat: 6.96861,
+    long: 80.783943
+  },
+  {
+    countryId: "643",
+    city: "Kazan",
+    date: "10-02-2020",
+    lat: 55.830433,
+    long: 49.066082
   }
 ];
 
@@ -347,6 +384,7 @@ UNIQUE_PLACES_VISITED.push({
 
 export const COUNTRY_EMOJI = {
   "040": "🇦🇹",
+  "144": "🇱🇰",
   "156": "🇨🇳",
   "203": "🇨🇿",
   "208": "🇩🇰",
