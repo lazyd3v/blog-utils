@@ -358,10 +358,31 @@ export const TRIPS = [
   },
   {
     countryId: "144",
+    city: "Mirissa",
+    date: "28-01-2020",
+    lat: 5.9493634,
+    long: 80.4558128
+  },
+  {
+    countryId: "144",
+    city: "Galle",
+    date: "29-01-2020",
+    lat: 6.0328139,
+    long: 80.214955
+  },
+  {
+    countryId: "144",
     city: "Nuwara Eliya",
     date: "03-02-2020",
     lat: 6.96861,
     long: 80.783943
+  },
+  {
+    countryId: "144",
+    city: "Ella",
+    date: "04-02-2020",
+    lat: 6.8736058,
+    long: 81.0489927
   },
   {
     countryId: "643",
