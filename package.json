@@ -8,6 +8,7 @@
     "date-fns": "^2.8.1",
     "esm": "^3.2.25",
     "lodash-es": "^4.17.15",
+    "pixi.js": "^5.2.1",
     "topojson": "^3.0.2",
     "world-atlas": "^2.0.2"
   },

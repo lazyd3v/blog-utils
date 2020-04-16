@@ -4,9 +4,9 @@ export const HORIZONTAL_TILT = 0;
 export const MARKER_RADIUS = 4;
 
 export const COLORS = {
-  ocean: "#B8E0F3",
-  border: "#F6E1D6",
-  country: "#F8F5EE",
-  visited: "#D1E3CA",
-  marker: "#CD5546"
+  ocean: 0xb8e0f3,
+  border: 0xf6e1d6,
+  country: 0xf8f5ee,
+  visited: 0xd1e3ca,
+  marker: 0xcd5546,
 };

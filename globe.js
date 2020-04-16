@@ -1,5 +1,6 @@
 import * as d3 from "./d3";
-import { feature as topojsonFeature } from "topojson-client";
+import { feature as getTopojsonFeature } from "topojson-client";
+import * as PIXI from "./pixi";
 import worldAtlas from "world-atlas/countries-110m.json";
 
 import {
@@ -7,86 +8,129 @@ import {
   VERTICAL_TILT,
   HORIZONTAL_TILT,
   COLORS,
-  MARKER_RADIUS
+  MARKER_RADIUS,
 } from "./config";
 
-const width = 500;
-const height = 500;
+const width = 350;
+const height = 350;
 const center = [width / 2, height / 2];
 
-const svg = d3.select("#globe");
-const markerGroup = svg.append("g");
+const app = new PIXI.Application({
+  width,
+  height,
+  transparent: true,
+  antialias: true,
+  autoDensity: true,
+  resolution: window.devicePixelRatio,
+});
+document.querySelector("#globe").appendChild(app.view);
+
+const graphics = new PIXI.Graphics();
+app.stage.addChild(graphics);
+
 const projection = d3.geoOrthographic().translate(center);
-const path = d3.geoPath().projection(projection);
+const path = d3.geoPath().projection(projection).context(graphics);
 
 function initialize() {
   fetch("/globe-meta.json")
-    .then(res => res.json())
-    .then(metaData => {
+    .then((res) => res.json())
+    .then((json) => {
+      const metaData = generateMetaDataForRender(json);
+
+      initializeProjection(metaData);
       drawGlobe(metaData);
       enableRotation(metaData);
     });
 }
 
+function generateMetaDataForRender(json) {
+  const visitedCountriesIds = new Set(json.countries);
+
+  const topojsonFeature = getTopojsonFeature(
+    worldAtlas,
+    worldAtlas.objects.countries
+  );
+
+  const visited = {
+    ...topojsonFeature,
+    features: topojsonFeature.features.filter((c) =>
+      visitedCountriesIds.has(c.id)
+    ),
+  };
+  const notVisited = {
+    ...topojsonFeature,
+    features: topojsonFeature.features.filter(
+      (c) => !visitedCountriesIds.has(c.id)
+    ),
+  };
+
+  return {
+    countries: { visited, notVisited },
+    places: json.places,
+    topojsonFeature,
+  };
+}
+
+function initializeProjection(metaData) {
+  projection.fitSize([width, height], metaData.topojsonFeature);
+}
+
 function drawGlobe(metaData) {
-  const { countries } = metaData;
-  const countriesSet = new Set(countries);
+  const {
+    countries: { visited, notVisited },
+    places,
+  } = metaData;
+  graphics.clear();
 
-  // Base
-  svg
-    .append("g")
-    .append("circle")
-    .style("fill", COLORS.ocean)
-    .attr("cx", center[0])
-    .attr("cy", center[1])
-    .attr("r", height / 2);
+  // Ocean
+  graphics.beginFill(COLORS.ocean);
+  graphics.lineStyle(0);
+  graphics.drawCircle(center[0], center[1], height / 2);
+  graphics.endFill();
 
-  // Countries
-  svg
-    .selectAll(".segment")
-    .data(topojsonFeature(worldAtlas, worldAtlas.objects.countries).features)
-    .enter()
-    .append("path")
-    .attr("class", "segment")
-    .attr("d", path)
-    .style("stroke", COLORS.border)
-    .style("stroke-width", "1px")
-    .style("fill", (d, i) => {
-      return countriesSet.has(d.id) ? COLORS.visited : COLORS.country;
-    });
+  // Visited countries
+  graphics.beginFill(COLORS.visited, 1);
+  graphics.lineStyle(1, COLORS.border, 1);
+  path(visited);
+  graphics.endFill();
 
-  drawMarkers(metaData);
+  // Not visited countries
+  graphics.beginFill(COLORS.country, 1);
+  graphics.lineStyle(1, COLORS.border, 1);
+  path(notVisited);
+  graphics.endFill();
+
+  drawMarkers(places);
 }
 
 function enableRotation(metaData) {
-  d3.timer(function(elapsed) {
-    projection.rotate([SPEED * elapsed - 120, VERTICAL_TILT, HORIZONTAL_TILT]);
-    svg.selectAll("path").attr("d", path);
-    drawMarkers(metaData);
+  const ticker = PIXI.Ticker.shared;
+
+  let angle = -120;
+
+  ticker.add(() => {
+    angle += PIXI.Ticker.shared.elapsedMS * SPEED;
+    projection.rotate([angle, VERTICAL_TILT, HORIZONTAL_TILT]);
+    drawGlobe(metaData);
   });
+  ticker.start();
 }
 
-function drawMarkers(metaData) {
-  const { places } = metaData;
-  const markers = markerGroup.selectAll("circle").data(places);
+function drawMarkers(places) {
+  places.forEach((place) => {
+    const cords = [place.long, place.lat];
+    const projectedCoords = projection(cords);
 
-  markers
-    .enter()
-    .append("circle")
-    .merge(markers)
-    .attr("cx", d => projection([d.long, d.lat])[0])
-    .attr("cy", d => projection([d.long, d.lat])[1])
-    .attr("fill", COLORS.marker)
-    .attr("r", d => {
-      const coordinate = [d.long, d.lat];
-      const gdistance = d3.geoDistance(coordinate, projection.invert(center));
-      const r = (MARKER_RADIUS * (1.57 - gdistance)) / 1.57;
+    const gdistance = d3.geoDistance(cords, projection.invert(center));
+    const possibleRadius = (MARKER_RADIUS * (1.57 - gdistance)) / 1.57;
+    const radius = Math.max(possibleRadius, 0);
 
-      return Math.max(r, 0);
-    });
-
-  markerGroup.each(function() {
-    this.parentNode.appendChild(this);
+    if (radius > 0) {
+      graphics.beginFill(COLORS.marker);
+      graphics.lineStyle(0);
+      graphics.drawCircle(projectedCoords[0], projectedCoords[1], radius);
+      graphics.endFill();
+    }
   });
 }
 
