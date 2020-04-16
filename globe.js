@@ -1,6 +1,7 @@
+import debounce from "lodash/debounce";
 import * as d3 from "./d3";
 import { feature as getTopojsonFeature } from "topojson-client";
-import * as PIXI from "./pixi";
+import * as PIXI from "pixi.js";
 import worldAtlas from "world-atlas/countries-110m.json";
 
 import {
@@ -11,10 +12,11 @@ import {
   MARKER_RADIUS,
 } from "./config";
 
-const width = 350;
-const height = 350;
+const width = 500;
+const height = 500;
 const center = [width / 2, height / 2];
 
+const renderElement = document.getElementById("globe");
 const app = new PIXI.Application({
   width,
   height,
@@ -23,7 +25,8 @@ const app = new PIXI.Application({
   autoDensity: true,
   resolution: window.devicePixelRatio,
 });
-document.querySelector("#globe").appendChild(app.view);
+
+renderElement.appendChild(app.view);
 
 const graphics = new PIXI.Graphics();
 app.stage.addChild(graphics);
@@ -31,14 +34,26 @@ app.stage.addChild(graphics);
 const projection = d3.geoOrthographic().translate(center);
 const path = d3.geoPath().projection(projection).context(graphics);
 
+function applySize() {
+  const {
+    width: newWidth,
+    height: newHeight,
+  } = renderElement.getBoundingClientRect();
+
+  app.renderer.resize(newWidth, newHeight);
+  app.stage.scale.set(newWidth / width, newHeight / height);
+}
+
+window.addEventListener("resize", debounce(applySize, 300));
+
 function initialize() {
   fetch("/globe-meta.json")
     .then((res) => res.json())
     .then((json) => {
       const metaData = generateMetaDataForRender(json);
 
+      applySize();
       initializeProjection(metaData);
-      drawGlobe(metaData);
       enableRotation(metaData);
     });
 }
