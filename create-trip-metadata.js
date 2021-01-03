@@ -2,9 +2,11 @@ import {
   UNIQUE_PLACES_VISITED,
   UNIQUE_COUNTRIES_VISITED,
   TRIPS,
-  COUNTRY_EMOJI
+  COUNTRY_EMOJI,
 } from "./data.js";
 import fs from "fs";
+import { reverse } from "ramda";
+import { createStats } from "./create-stats";
 
 function formatDate(dateStr) {
   const reversedDateParts = dateStr.split("-").reverse();
@@ -26,7 +28,7 @@ function isSameYear(date1, date2) {
 }
 
 function generateJSON() {
-  const reversedTrips = TRIPS.reverse();
+  const reversedTrips = reverse(TRIPS);
 
   let trips = [];
   let yearDetails = { trips: [] };
@@ -52,11 +54,15 @@ function generateJSON() {
 
   const globeMetaData = {
     places: UNIQUE_PLACES_VISITED,
-    countries: Array.from(UNIQUE_COUNTRIES_VISITED)
+    countries: Array.from(UNIQUE_COUNTRIES_VISITED),
   };
 
   fs.writeFileSync("./static/trips.json", JSON.stringify(trips));
   fs.writeFileSync("./static/globe-meta.json", JSON.stringify(globeMetaData));
+  fs.writeFileSync(
+    "./static/trips-stats.json",
+    JSON.stringify(createStats(TRIPS))
+  );
 }
 
 generateJSON();

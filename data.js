@@ -8,6 +8,7 @@ export const TRIPS = [
     date: "08-10-2008",
     lat: 36.721275,
     long: -4.421399,
+    isNewTrip: true,
   },
   {
     countryId: "724",
@@ -31,6 +32,7 @@ export const TRIPS = [
     date: "23-08-2010",
     lat: 44.060921,
     long: 12.5663,
+    isNewTrip: true,
   },
   {
     countryId: "674",
@@ -61,6 +63,7 @@ export const TRIPS = [
     date: "22-03-2011",
     lat: 54.738762,
     long: 55.972054,
+    isNewTrip: true,
   },
 
   {
@@ -69,6 +72,7 @@ export const TRIPS = [
     date: "19-11-2011",
     lat: 18.252848,
     long: 109.511909,
+    isNewTrip: true,
   },
   {
     countryId: "156",
@@ -85,6 +89,7 @@ export const TRIPS = [
     date: "23-01-2013",
     lat: 55.755825,
     long: 37.617298,
+    isNewTrip: true,
   },
   {
     countryId: "643",
@@ -92,6 +97,7 @@ export const TRIPS = [
     date: "02-07-2013",
     lat: 55.755825,
     long: 37.617298,
+    isNewTrip: true,
   },
   {
     countryId: "356",
@@ -99,6 +105,7 @@ export const TRIPS = [
     date: "12-11-2013",
     lat: 15.299326,
     long: 74.123993,
+    isNewTrip: true,
   },
 
   // 2014
@@ -108,6 +115,7 @@ export const TRIPS = [
     date: "23-01-2014",
     lat: 55.755825,
     long: 37.617298,
+    isNewTrip: true,
   },
   {
     countryId: "643",
@@ -115,6 +123,7 @@ export const TRIPS = [
     date: "02-07-2014",
     lat: 55.755825,
     long: 37.617298,
+    isNewTrip: true,
   },
   {
     countryId: "643",
@@ -122,6 +131,7 @@ export const TRIPS = [
     date: "12-11-2014",
     lat: 56.632339,
     long: 47.894089,
+    isNewTrip: true,
   },
 
   // 2016
@@ -131,6 +141,7 @@ export const TRIPS = [
     date: "09-10-2016",
     lat: 55.755825,
     long: 37.617298,
+    isNewTrip: true,
   },
   {
     countryId: "643",
@@ -138,6 +149,7 @@ export const TRIPS = [
     date: "12-12-2016",
     lat: 58.83992,
     long: 57.55243,
+    isNewTrip: true,
   },
 
   // 2017
@@ -147,6 +159,7 @@ export const TRIPS = [
     date: "13-02-2017",
     lat: 53.590518,
     long: 58.583109,
+    isNewTrip: true,
   },
   {
     countryId: "428",
@@ -154,6 +167,7 @@ export const TRIPS = [
     date: "27-07-2017",
     lat: 56.94965,
     long: 24.105186,
+    isNewTrip: true,
   },
   {
     countryId: "203",
@@ -177,6 +191,7 @@ export const TRIPS = [
     date: "11-02-2018",
     lat: 53.590518,
     long: 58.583109,
+    isNewTrip: true,
   },
   {
     countryId: "643",
@@ -191,6 +206,7 @@ export const TRIPS = [
     date: "05-07-2018",
     lat: 50.075539,
     long: 14.4378,
+    isNewTrip: true,
   },
 
   {
@@ -199,6 +215,7 @@ export const TRIPS = [
     date: "01-10-2018",
     lat: 55.755825,
     long: 37.617298,
+    isNewTrip: true,
   },
   {
     countryId: "752",
@@ -215,6 +232,7 @@ export const TRIPS = [
     date: "01-02-2019",
     lat: 18.456169,
     long: -69.610046,
+    isNewTrip: true,
   },
   {
     countryId: "643",
@@ -230,6 +248,7 @@ export const TRIPS = [
     date: "25-03-2019",
     lat: 59.329323,
     long: 18.068581,
+    isNewTrip: true,
   },
   {
     countryId: "528",
@@ -252,6 +271,7 @@ export const TRIPS = [
     date: "25-04-2019",
     lat: 55.755825,
     long: 37.617298,
+    isNewTrip: true,
   },
 
   {
@@ -260,6 +280,7 @@ export const TRIPS = [
     date: "24-06-2019",
     lat: 55.755825,
     long: 37.617298,
+    isNewTrip: true,
   },
 
   {
@@ -293,14 +314,16 @@ export const TRIPS = [
     date: "16-08-2019",
     lat: 48.209206,
     long: 16.372778,
+    isNewTrip: true,
   },
 
   {
     countryId: "528",
     city: "Amsterdam",
-    date: "01-08-2019",
+    date: "01-09-2019",
     lat: 52.370216,
     long: 4.895168,
+    isNewTrip: true,
   },
 
   {
@@ -309,6 +332,7 @@ export const TRIPS = [
     date: "23-09-2019",
     lat: 48.856788,
     long: 2.351077,
+    isNewTrip: true,
   },
 
   {
@@ -317,6 +341,7 @@ export const TRIPS = [
     date: "04-10-2019",
     lat: 48.856788,
     long: 2.351077,
+    isNewTrip: true,
   },
 
   {
@@ -325,6 +350,7 @@ export const TRIPS = [
     date: "02-10-2019",
     lat: 52.517632,
     long: 13.409657,
+    isNewTrip: true,
   },
   {
     countryId: "208",
@@ -339,6 +365,7 @@ export const TRIPS = [
     date: "28-12-2019",
     lat: 55.830433,
     long: 49.066082,
+    isNewTrip: true,
   },
 
   // 2020
@@ -348,6 +375,7 @@ export const TRIPS = [
     date: "25-01-2020",
     lat: 55.755825,
     long: 37.617298,
+    isNewTrip: true,
   },
   {
     countryId: "144",
@@ -397,6 +425,7 @@ export const TRIPS = [
     date: "10-07-2020",
     lat: 57.7089,
     long: 11.9746,
+    isNewTrip: true,
   },
   {
     countryId: "380",
@@ -404,6 +433,7 @@ export const TRIPS = [
     date: "18-07-2020",
     lat: 45.464203,
     long: 9.189982,
+    isNewTrip: true,
   },
   {
     countryId: "380",
@@ -446,6 +476,7 @@ export const TRIPS = [
     date: "03-10-2020",
     lat: 59.85882,
     long: 17.63889,
+    isNewTrip: true,
   },
   {
     countryId: "752",
@@ -453,6 +484,7 @@ export const TRIPS = [
     date: "07-11-2020",
     lat: 55.7047,
     long: 13.191,
+    isNewTrip: true,
   },
   {
     countryId: "752",
@@ -460,6 +492,23 @@ export const TRIPS = [
     date: "07-11-2020",
     lat: 55.605,
     long: 13.0038,
+  },
+
+  // 2021
+  {
+    countryId: "752",
+    city: "Norrköping",
+    date: "02-01-2021",
+    lat: 58.5877,
+    long: 16.1924,
+    isNewTrip: true,
+  },
+  {
+    countryId: "752",
+    city: "Linköping",
+    date: "02-01-2021",
+    lat: 58.4108,
+    long: 15.6214,
   },
 ];
 
