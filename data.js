@@ -350,7 +350,7 @@ export const TRIPS = [
   {
     countryId: "276",
     city: "Berlin",
-    date: "02-10-2019",
+    date: "02-11-2019",
     lat: 52.517632,
     long: 13.409657,
     isNewTrip: true,
@@ -358,7 +358,7 @@ export const TRIPS = [
   {
     countryId: "208",
     city: "Copenhagen",
-    date: "04-10-2019",
+    date: "04-11-2019",
     lat: 55.675757,
     long: 12.569023,
   },
