@@ -289,6 +289,7 @@ export const TRIPS = [
     date: "29-06-2019",
     lat: 59.329323,
     long: 18.068581,
+    isNewTrip: true,
   },
 
   {
@@ -297,6 +298,7 @@ export const TRIPS = [
     date: "12-07-2019",
     lat: 48.856788,
     long: 2.351077,
+    isNewTrip: true,
   },
 
   {
@@ -306,6 +308,7 @@ export const TRIPS = [
     lat: 59.329323,
     long: 18.068581,
     relocated: true,
+    isNewTrip: true,
   },
 
   {
@@ -516,6 +519,16 @@ export const TRIPS = [
     date: "11-02-2021",
     lat: 63.399,
     long: 13.0815,
+    isNewTrip: true,
+  },
+
+  {
+    countryId: "643",
+    city: "Kazan",
+    date: "18-03-2021",
+    lat: 55.830433,
+    long: 49.066082,
+    isNewTrip: true,
   },
 ];
 
