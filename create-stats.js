@@ -12,9 +12,17 @@ function getBaseCityCoordinates(dateStr) {
     };
   }
 
+  // Living in Stockholm before moving to Paris
+  if (isBefore(date, new Date(2021, 5, 3))) {
+    return {
+      latitude: 59.329323,
+      longitude: 18.068581,
+    }
+  }
+
   return {
-    latitude: 59.329323,
-    longitude: 18.068581,
+    latitude: 48.856788,
+    longitude: 2.351077,
   };
 }
 

@@ -530,6 +530,14 @@ export const TRIPS = [
     long: 49.066082,
     isNewTrip: true,
   },
+  {
+    countryId: "250",
+    city: "Paris",
+    date: "04-06-2021",
+    lat: 48.856788,
+    long: 2.351077,
+    isNewTrip: true,
+  }
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
