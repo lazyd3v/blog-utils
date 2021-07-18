@@ -537,6 +537,14 @@ export const TRIPS = [
     lat: 48.856788,
     long: 2.351077,
     isNewTrip: true,
+  },
+  {
+    countryId: "250",
+    city: "Lille",
+    date: "17-07-2021",
+    lat: 50.6292,
+    long: 3.0573,
+    isNewTrip: true,
   }
 ];
 
