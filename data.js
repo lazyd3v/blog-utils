@@ -545,6 +545,21 @@ export const TRIPS = [
     lat: 50.6292,
     long: 3.0573,
     isNewTrip: true,
+  },
+  {
+    countryId: "250",
+    city: "Strasbourg",
+    date: "25-07-2021",
+    lat: 48.5734,
+    long: 7.7521,
+    isNewTrip: true,
+  },
+  {
+    countryId: "276",
+    city: "Kehl",
+    date: "25-07-2021",
+    lat: 48.5789,
+    long: 7.8161,
   }
 ];
 
