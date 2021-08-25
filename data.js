@@ -560,7 +560,73 @@ export const TRIPS = [
     date: "25-07-2021",
     lat: 48.5789,
     long: 7.8161,
-  }
+  },
+  {
+    countryId: "250",
+    city: "Lyon",
+    date: "08-08-2021",
+    lat: 45.764,
+    long: 4.8357,
+    isNewTrip: true,
+  },
+  {
+    countryId: "250",
+    city: "Bordeaux",
+    date: "14-08-2021",
+    lat: 44.8378,
+    long: 0.5792,
+    isNewTrip: true,
+  },
+  {
+    countryId: "250",
+    city: "Arcachon",
+    date: "15-08-2021",
+    lat: 44.65,
+    long: -1.1667,
+  },
+  {
+    countryId: "250",
+    city: "Nice",
+    date: "17-08-2021",
+    lat: 43.7102,
+    long: 7.262,
+    isNewTrip: true,
+  },
+  {
+    countryId: "492",
+    city: "Monaco",
+    date: "19-08-2021",
+    lat: 43.7384,
+    long: 7.4246,
+  },
+  {
+    countryId: "250",
+    city: "Cap-d'Ail",
+    date: "19-08-2021",
+    lat: 43.7221,
+    long: 7.4058,
+  },
+  {
+    countryId: "250",
+    city: "Cannes",
+    date: "21-08-2021",
+    lat: 43.5528,
+    long: 7.0174,
+  },
+  {
+    countryId: "250",
+    city: "Île Sainte-Marguerite",
+    date: "21-08-2021",
+    lat: 43.5181,
+    long: 7.0428,
+  },
+  {
+    countryId: "250",
+    city: "Èze",
+    date: "23-08-2021",
+    lat: 43.7278,
+    long: 7.3618,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
@@ -598,4 +664,5 @@ export const COUNTRY_EMOJI = {
   643: "🇷🇺",
   674: "🇸🇲",
   724: "🇪🇸",
+  492: "🇲🇨",
 };
