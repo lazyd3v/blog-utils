@@ -627,6 +627,14 @@ export const TRIPS = [
     lat: 43.7278,
     long: 7.3618,
   },
+  {
+    countryId: "352",
+    city: "Luxembourg",
+    date: "18-09-2021",
+    lat: 49.6116,
+    long: 6.1319,
+    isNewTrip: true,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
@@ -665,4 +673,5 @@ export const COUNTRY_EMOJI = {
   674: "🇸🇲",
   724: "🇪🇸",
   492: "🇲🇨",
+  352: "🇱🇺"
 };
