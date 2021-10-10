@@ -635,6 +635,14 @@ export const TRIPS = [
     long: 6.1319,
     isNewTrip: true,
   },
+  {
+    countryId: "056",
+    city: "Brussels",
+    date: "25-09-2021",
+    lat: 50.8729,
+    long: 4.3093,
+    isNewTrip: true,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
@@ -673,5 +681,6 @@ export const COUNTRY_EMOJI = {
   674: "🇸🇲",
   724: "🇪🇸",
   492: "🇲🇨",
-  352: "🇱🇺"
+  352: "🇱🇺",
+  "056": "🇧🇪"
 };
