@@ -643,6 +643,31 @@ export const TRIPS = [
     long: 4.3093,
     isNewTrip: true,
   },
+  {
+    countryId: "250",
+    city: "Montpellier",
+    date: "09-09-2021",
+    lat: 43.6107,
+    long: 3.8767,
+    isNewTrip: true,
+  },
+
+  {
+    countryId: "643",
+    city: "Kazan",
+    date: "20-01-2022",
+    lat: 55.830433,
+    long: 49.066082,
+    isNewTrip: true,
+  },
+  {
+    countryId: "250",
+    city: "Les Deux Alpes",
+    date: "25-01-2022",
+    lat: 45.001560,
+    long: 6.071080,
+    isNewTrip: true,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
