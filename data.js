@@ -668,6 +668,14 @@ export const TRIPS = [
     long: 6.071080,
     isNewTrip: true,
   },
+  {
+    countryId: "250",
+    city: "Étretat",
+    date: "26-02-2022",
+    lat: 49.4224,
+    long: 0.1218,
+    isNewTrip: true,
+  }
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
