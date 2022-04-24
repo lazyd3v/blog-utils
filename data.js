@@ -675,7 +675,29 @@ export const TRIPS = [
     lat: 49.4224,
     long: 0.1218,
     isNewTrip: true,
-  }
+  },
+  {
+    countryId: "056",
+    city: "Ghent",
+    date: "15-04-2022",
+    lat: 51.0500,
+    long: 3.7303,
+    isNewTrip: true,
+  },
+  {
+    countryId: "528",
+    city: "Amsterdam",
+    date: "15-04-2022",
+    lat: 52.370216,
+    long: 4.895168,
+  },
+  {
+    countryId: "528",
+    city: "Rotterdam",
+    date: "18-04-2022",
+    lat: 51.9244,
+    long: 4.4777,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
