@@ -10,6 +10,7 @@ import {
   HORIZONTAL_TILT,
   COLORS,
   MARKER_RADIUS,
+  ROTATION_MULTIPLIER,
 } from "./config";
 
 const width = 500;
@@ -29,6 +30,9 @@ const app = new PIXI.Application({
 renderElement.appendChild(app.view);
 
 const graphics = new PIXI.Graphics();
+graphics.interactive = true;
+graphics.dragging = false;
+graphics.rotationAngle = -120;
 app.stage.addChild(graphics);
 
 const projection = d3.geoOrthographic().translate(center);
@@ -55,6 +59,7 @@ function initialize() {
       applySize();
       initializeProjection(metaData);
       enableRotation(metaData);
+      enableDragging();
     });
 }
 
@@ -121,14 +126,54 @@ function drawGlobe(metaData) {
 function enableRotation(metaData) {
   const ticker = PIXI.Ticker.shared;
 
-  let angle = -120;
-
   ticker.add(() => {
-    angle += PIXI.Ticker.shared.elapsedMS * SPEED;
-    projection.rotate([angle, VERTICAL_TILT, HORIZONTAL_TILT]);
+    if (!graphics.dragging) {
+      graphics.rotationAngle += PIXI.Ticker.shared.elapsedMS * SPEED;
+    }
+
+    projection.rotate([graphics.rotationAngle, VERTICAL_TILT, HORIZONTAL_TILT]);
     drawGlobe(metaData);
   });
   ticker.start();
+}
+
+function enableDragging () {
+  let previousTouch
+  const onStart = (event) => {
+    previousTouch = event.data.originalEvent.touches?.[0]
+
+    graphics.dragging = true;
+  }
+  
+  const onMove = (event) => {
+    if (!event.target) {
+      return
+    }
+
+    if (graphics.dragging) {
+      const movementX = event.data.originalEvent.movementX
+      if (movementX) {
+        graphics.rotationAngle += movementX * ROTATION_MULTIPLIER;
+      } else if (previousTouch) {
+        const delta = event.data.originalEvent.touches[0].pageX - previousTouch.pageX;
+        graphics.rotationAngle += delta * ROTATION_MULTIPLIER;
+      }
+    }
+    
+    previousTouch = event.data.originalEvent.touches?.[0]
+  }
+  const onEnd = () => {
+    graphics.dragging = false;
+  }
+
+  graphics.on('mousedown', onStart)
+  graphics.on('touchstart', onStart)
+  graphics.on('mousemove', onMove)
+  graphics.on('touchmove', onMove)
+  graphics.on('mouseout', onEnd)
+  graphics.on('touchendoutside', onEnd)
+  graphics.on('mouseup', onEnd)
+  graphics.on('touchend', onEnd)
 }
 
 function drawMarkers(places) {
