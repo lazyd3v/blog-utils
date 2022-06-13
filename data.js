@@ -698,6 +698,21 @@ export const TRIPS = [
     lat: 51.9244,
     long: 4.4777,
   },
+  {
+    countryId: "724",
+    city: "Lloret de Mar",
+    date: "31-05-2022",
+    lat: 41.7006,
+    long: 2.8398,
+    isNewTrip: true,
+  },
+  {
+    countryId: "724",
+    city: "Barcelona",
+    date: "05-06-2022",
+    lat: 41.3874,
+    long: 2.1686,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
