@@ -719,6 +719,7 @@ export const TRIPS = [
     date: "03-07-2022",
     lat: 43.1542,
     long: 16.6527,
+    isNewTrip: true,
   },
   {
     countryId: "191",
