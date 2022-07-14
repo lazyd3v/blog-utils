@@ -713,6 +713,20 @@ export const TRIPS = [
     lat: 41.3874,
     long: 2.1686,
   },
+  {
+    countryId: "191",
+    city: "Hvar",
+    date: "03-07-2022",
+    lat: 43.1542,
+    long: 16.6527,
+  },
+  {
+    countryId: "191",
+    city: "Split",
+    date: "08-07-2022",
+    lat: 43.5147,
+    long: 16.4435,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
@@ -752,5 +766,6 @@ export const COUNTRY_EMOJI = {
   724: "🇪🇸",
   492: "🇲🇨",
   352: "🇱🇺",
-  "056": "🇧🇪"
+  "056": "🇧🇪",
+  191: "🇭🇷"
 };
