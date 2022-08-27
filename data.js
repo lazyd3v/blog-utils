@@ -714,6 +714,14 @@ export const TRIPS = [
     long: 2.1686,
   },
   {
+    countryId: "250",
+    city: "Étretat",
+    date: "18-06-2022",
+    lat: 49.4224,
+    long: 0.1218,
+    isNewTrip: true,
+  },
+  {
     countryId: "191",
     city: "Hvar",
     date: "03-07-2022",
@@ -727,6 +735,21 @@ export const TRIPS = [
     date: "08-07-2022",
     lat: 43.5147,
     long: 16.4435,
+  },
+  {
+    countryId: "250",
+    city: "Deauville",
+    date: "14-08-2022",
+    lat: 49.3540,
+    long: 0.0751,
+    isNewTrip: true,
+  },
+  {
+    countryId: "250",
+    city: "Trouville-sur-Mer",
+    date: "14-08-2022",
+    lat: 49.3663,
+    long: 0.0828,
   },
 ];
 
