@@ -756,7 +756,7 @@ export const TRIPS = [
     city: "Cancun",
     date: "24-10-2022",
     lat: 21.1619,
-    long: 86.8515,
+    long: -86.8515,
     isNewTrip: true,
   },
   {
@@ -764,7 +764,7 @@ export const TRIPS = [
     city: "Tulum",
     date: "30-10-2022",
     lat: 20.2114,
-    long: 87.4654,
+    long: -87.4654,
   },
 ];
 
