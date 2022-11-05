@@ -751,6 +751,21 @@ export const TRIPS = [
     lat: 49.3663,
     long: 0.0828,
   },
+  {
+    countryId: "484",
+    city: "Cancun",
+    date: "24-10-2022",
+    lat: 21.1619,
+    long: 86.8515,
+    isNewTrip: true,
+  },
+  {
+    countryId: "484",
+    city: "Tulum",
+    date: "30-10-2022",
+    lat: 20.2114,
+    long: 87.4654,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
@@ -791,5 +806,6 @@ export const COUNTRY_EMOJI = {
   492: "🇲🇨",
   352: "🇱🇺",
   "056": "🇧🇪",
-  191: "🇭🇷"
+  191: "🇭🇷",
+  484: "🇲🇽",
 };
