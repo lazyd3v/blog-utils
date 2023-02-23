@@ -766,6 +766,16 @@ export const TRIPS = [
     lat: 20.2114,
     long: -87.4654,
   },
+
+  // 2023
+  {
+    countryId: "620",
+    city: "Lisbon",
+    date: "16-02-2023",
+    lat: 38.7223,
+    long: -9.1393,
+    isNewTrip: true,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
@@ -808,4 +818,5 @@ export const COUNTRY_EMOJI = {
   "056": "🇧🇪",
   191: "🇭🇷",
   484: "🇲🇽",
+  620: "🇵🇹"
 };
