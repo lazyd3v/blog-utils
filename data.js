@@ -766,6 +766,14 @@ export const TRIPS = [
     lat: 20.2114,
     long: -87.4654,
   },
+  {
+    countryId: "250",
+    city: "Le Mont Saint-Michel",
+    date: "12-11-2022",
+    lat: 48.6361,
+    long: -1.5115,
+    isNewTrip: true,
+  },
 
   // 2023
   {
