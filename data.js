@@ -784,6 +784,21 @@ export const TRIPS = [
     long: -9.1393,
     isNewTrip: true,
   },
+  {
+    countryId: "250",
+    city: "Alpe d'Huez",
+    date: "18-03-2023",
+    lat: 45.0499998,
+    long: 6.0333332,
+    isNewTrip: true,
+  },
+  {
+    countryId: "380",
+    city: "Como",
+    date: "25-03-2023",
+    lat: 45.85317,
+    long: 9.39005,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
