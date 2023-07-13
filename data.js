@@ -799,6 +799,14 @@ export const TRIPS = [
     lat: 45.85317,
     long: 9.39005,
   },
+  {
+    countryId: "300",
+    city: "Crete",
+    date: "23-06-2023",
+    lat: 35.3387,
+    long: 25.1442,
+    isNewTrip: true,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
@@ -841,5 +849,6 @@ export const COUNTRY_EMOJI = {
   "056": "🇧🇪",
   191: "🇭🇷",
   484: "🇲🇽",
-  620: "🇵🇹"
+  620: "🇵🇹",
+  300: "🇬🇷"
 };
