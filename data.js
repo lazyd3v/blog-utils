@@ -807,6 +807,29 @@ export const TRIPS = [
     long: 25.1442,
     isNewTrip: true,
   },
+  {
+    countryId: "276",
+    city: "Berlin",
+    date: "15-07-2023",
+    lat: 52.517632,
+    long: 13.409657,
+    isNewTrip: true,
+  },
+  {
+    countryId: "642",
+    city: "Bucharest",
+    date: "09-09-2023",
+    lat: 44.4268,
+    long: 26.1025,
+    isNewTrip: true,
+  },
+  {
+    countryId: "642",
+    city: "Brasov",
+    date: "12-09-2023",
+    lat: 45.6508,
+    long: 25.6195,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
@@ -850,5 +873,6 @@ export const COUNTRY_EMOJI = {
   191: "🇭🇷",
   484: "🇲🇽",
   620: "🇵🇹",
-  300: "🇬🇷"
+  300: "🇬🇷",
+  642: "🇷🇴"
 };
