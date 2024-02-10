@@ -844,7 +844,17 @@ export const TRIPS = [
     date: "25-12-2023",
     lat: 52.092876,
     long: 5.104480,
-  }, 
+  },
+
+  // 2024
+  {
+    countryId: "724",
+    city: "Girona",
+    date: "15-01-2024",
+    lat: 41.979401,
+    long: 2.821426,
+    isNewTrip: true,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
