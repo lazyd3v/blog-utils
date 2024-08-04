@@ -887,6 +887,50 @@ export const TRIPS = [
     long: 1.0775,
     isNewTrip: true,
   },
+  {
+    countryId: "250",
+    city: "Épernay",
+    date: "20-07-2024",
+    lat: 49.0434,
+    long: 3.9562,
+    isNewTrip: true,
+  },
+  {
+    countryId: "756",
+    city: "Bern",
+    date: "27-07-2024",
+    lat: 46.9480,
+    long: 7.4474,
+    isNewTrip: true,
+  },
+  {
+    countryId: "756",
+    city: "Montreux",
+    date: "27-07-2024",
+    lat: 46.4312,
+    long: 6.9107,
+  },
+  {
+    countryId: "756",
+    city: "Interlaken",
+    date: "28-07-2024",
+    lat: 46.6863,
+    long: 7.8632,
+  },
+  {
+    countryId: "756",
+    city: "Lauterbrunnen",
+    date: "30-07-2024",
+    lat: 46.5935,
+    long: 7.9091,
+  },
+  {
+    countryId: "756",
+    city: "Geneva",
+    date: "02-08-2024",
+    lat: 46.2044,
+    long: 6.1432,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
@@ -933,5 +977,6 @@ export const COUNTRY_EMOJI = {
   300: "🇬🇷",
   642: "🇷🇴",
   840: "🇺🇸",
-  268: "🇬🇪"
+  268: "🇬🇪",
+  756: "🇨🇭"
 };
