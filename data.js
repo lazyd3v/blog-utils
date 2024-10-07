@@ -931,6 +931,22 @@ export const TRIPS = [
     lat: 46.2044,
     long: 6.1432,
   },
+  {
+    countryId: "792",
+    city: "Bodrum",
+    date: "31-08-2024",
+    lat: 37.0344,
+    long: 27.4305,
+    isNewTrip: true,
+  },
+  {
+    countryId: "840",
+    city: "New York",
+    date: "26-09-2024",
+    lat: 40.730610,
+    long: -73.935242,
+    isNewTrip: true,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
@@ -978,5 +994,6 @@ export const COUNTRY_EMOJI = {
   642: "🇷🇴",
   840: "🇺🇸",
   268: "🇬🇪",
-  756: "🇨🇭"
+  756: "🇨🇭",
+  792: "🇹🇷"
 };
