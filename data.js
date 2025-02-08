@@ -947,6 +947,32 @@ export const TRIPS = [
     long: -73.935242,
     isNewTrip: true,
   },
+  {
+    countryId: "620",
+    city: "Lisbon",
+    date: "11-11-2024",
+    lat: 38.7223,
+    long: -9.1393,
+    isNewTrip: true,
+  },
+  {
+    countryId: "276",
+    city: "Berlin",
+    date: "23-12-2024",
+    lat: 52.517632,
+    long: 13.409657,
+    isNewTrip: true,
+  },
+
+  // 2025
+  {
+    countryId: "250",
+    city: "Les 3 Vallées",
+    date: "11-01-2025",
+    lat: 45.3914,
+    long: 6.5676,
+    isNewTrip: true,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
