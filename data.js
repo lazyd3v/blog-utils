@@ -973,6 +973,22 @@ export const TRIPS = [
     long: 6.5676,
     isNewTrip: true,
   },
+  {
+    countryId: "268",
+    city: "Tbilisi",
+    date: "20-03-2025",
+    lat: 41.716667,
+    long: 44.783333,
+    isNewTrip: true,
+  },
+  {
+    countryId: "826",
+    city: "London",
+    date: "06-06-2025",
+    lat: 51.50735,
+    long: -0.12776,
+    isNewTrip: true,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
@@ -1021,5 +1037,6 @@ export const COUNTRY_EMOJI = {
   840: "🇺🇸",
   268: "🇬🇪",
   756: "🇨🇭",
-  792: "🇹🇷"
+  792: "🇹🇷",
+  826: "🇬🇧"
 };
