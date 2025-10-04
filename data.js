@@ -837,7 +837,7 @@ export const TRIPS = [
     lat: 52.370216,
     long: 4.895168,
     isNewTrip: true,
-  }, 
+  },
   {
     countryId: "528",
     city: "Utrecht",
@@ -988,6 +988,36 @@ export const TRIPS = [
     lat: 51.50735,
     long: -0.12776,
     isNewTrip: true,
+  },
+  {
+    countryId: "300",
+    city: "Mykonos",
+    date: "23-06-2025",
+    lat: 37.2643,
+    long: 25.1943,
+    isNewTrip: true
+  },
+  {
+    countryId: "300",
+    city: "Naxos",
+    date: "25-06-2025",
+    lat: 37.2036,
+    long: 25.5346
+  },
+  {
+    countryId: "300",
+    city: "Paros",
+    date: "02-07-2025",
+    lat: 37.0651,
+    long: 25.1921
+  },
+  {
+    countryId: "724",
+    city: "Alicante",
+    date: "15-09-2025",
+    lat: 38.3458,
+    long: 0.4909,
+    isNewTrip: true
   },
 ];
 
