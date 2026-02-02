@@ -1019,6 +1019,82 @@ export const TRIPS = [
     long: 0.4909,
     isNewTrip: true
   },
+  {
+    countryId: "826",
+    city: "London",
+    date: "11-10-2025",
+    lat: 51.50735,
+    long: -0.12776,
+    isNewTrip: true,
+  },
+  {
+    countryId: "250",
+    city: "Lyon",
+    date: "24-10-2025",
+    lat: 45.764,
+    long: 4.8357,
+    isNewTrip: true,
+  },
+  {
+    countryId: "250",
+    city: "Le Mont Saint-Michel",
+    date: "28-12-2025",
+    lat: 48.6361,
+    long: -1.5115,
+    isNewTrip: true,
+  },
+
+  // 2026
+  {
+    countryId: "392",
+    city: "Tokyo",
+    date: "08-01-2026",
+    lat: 35.652832,
+    long: 139.839478,
+    isNewTrip: true,
+  },
+  {
+    countryId: "392",
+    city: "Kyoto",
+    date: "12-01-2026",
+    lat: 35.011665,
+    long: 135.768326,
+  },
+  {
+    countryId: "392",
+    city: "Nara",
+    date: "13-01-2026",
+    lat: 34.5667,
+    long: 135.7667,
+  },
+  {
+    countryId: "392",
+    city: "Sapporo",
+    date: "15-01-2026",
+    lat: 43.066666,
+    long: 141.350006,
+  },
+  {
+    countryId: "764",
+    city: "Bangkok",
+    date: "18-01-2026",
+    lat: 13.736717,
+    long: 100.523186,
+  },
+  {
+    countryId: "764",
+    city: "Koh Lanta",
+    date: "21-01-2026",
+    lat: 7.53362,
+    long: 99.079224,
+  },
+  {
+    countryId: "764",
+    city: "Phuket",
+    date: "28-01-2026",
+    lat: 7.878978,
+    long: 98.398392,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
@@ -1068,5 +1144,7 @@ export const COUNTRY_EMOJI = {
   268: "🇬🇪",
   756: "🇨🇭",
   792: "🇹🇷",
-  826: "🇬🇧"
+  826: "🇬🇧",
+  392: "🇯🇵",
+  764: "🇹🇭"
 };
