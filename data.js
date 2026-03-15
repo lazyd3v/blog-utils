@@ -1095,6 +1095,28 @@ export const TRIPS = [
     lat: 7.878978,
     long: 98.398392,
   },
+  {
+    countryId: "756",
+    city: "Chur",
+    date: "21-02-2026",
+    lat: 46.84986,
+    long: 9.53287,
+    isNewTrip: true,
+  },
+  {
+    countryId: "380",
+    city: "Como",
+    date: "22-02-2026",
+    lat: 45.85317,
+    long: 9.39005,
+  },
+  {
+    countryId: "380",
+    city: "Milan",
+    date: "23-02-2026",
+    lat: 45.464203,
+    long: 9.189982,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
