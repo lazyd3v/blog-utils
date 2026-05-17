@@ -18,22 +18,12 @@ const height = 500;
 const center = [width / 2, height / 2];
 
 const renderElement = document.getElementById("globe");
-const app = new PIXI.Application({
-  width,
-  height,
-  transparent: true,
-  antialias: true,
-  autoDensity: true,
-  resolution: window.devicePixelRatio,
-});
-
-renderElement.appendChild(app.view);
+const app = new PIXI.Application();
 
 const graphics = new PIXI.Graphics();
-graphics.interactive = true;
+graphics.eventMode = "static";
 graphics.dragging = false;
 graphics.rotationAngle = -120;
-app.stage.addChild(graphics);
 
 const projection = d3.geoOrthographic().translate(center);
 const path = d3.geoPath().projection(projection).context(graphics);
@@ -50,7 +40,19 @@ function applySize() {
 
 window.addEventListener("resize", debounce(applySize, 300));
 
-function initialize() {
+async function initialize() {
+  await app.init({
+    width,
+    height,
+    backgroundAlpha: 0,
+    antialias: true,
+    autoDensity: true,
+    resolution: window.devicePixelRatio,
+  });
+
+  renderElement.appendChild(app.canvas);
+  app.stage.addChild(graphics);
+
   fetch("/globe-meta.json")
     .then((res) => res.json())
     .then((json) => {
