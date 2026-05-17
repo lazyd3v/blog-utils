@@ -1117,6 +1117,14 @@ export const TRIPS = [
     lat: 45.464203,
     long: 9.189982,
   },
+  {
+    countryId: "528",
+    city: "Amsterdam",
+    date: "27-04-2026",
+    lat: 52.37403,
+    long: 4.88969,
+    isNewTrip: true,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
