@@ -1,6 +1,8 @@
-import { getPreciseDistance } from "geolib";
+import geolib from "geolib";
 import { parse, isBefore } from "date-fns";
 import { pipe, map, length, uniq } from "ramda";
+
+const { getPreciseDistance } = geolib;
 
 function getBaseCityCoordinates(dateStr) {
   const date = parse(dateStr, "dd-MM-yyyy", new Date());

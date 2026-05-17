@@ -4,7 +4,7 @@
 // Stockholm - Milan - Florence - Stockholm
 // Stockholm - Uppsala - Stockholm
 
-import { createStats } from "./create-stats";
+import { createStats } from "./create-stats.js";
 
 const data = [
   {

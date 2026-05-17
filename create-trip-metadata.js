@@ -4,9 +4,9 @@ import {
   TRIPS,
   COUNTRY_EMOJI,
 } from "./data.js";
-import fs from "fs";
+import fs from "node:fs";
 import { reverse } from "ramda";
-import { createStats } from "./create-stats";
+import { createStats } from "./create-stats.js";
 
 function formatDate(dateStr) {
   const reversedDateParts = dateStr.split("-").reverse();
@@ -57,6 +57,7 @@ function generateJSON() {
     countries: Array.from(UNIQUE_COUNTRIES_VISITED),
   };
 
+  fs.mkdirSync("./static", { recursive: true });
   fs.writeFileSync("./static/trips.json", JSON.stringify(trips));
   fs.writeFileSync("./static/globe-meta.json", JSON.stringify(globeMetaData));
   fs.writeFileSync(

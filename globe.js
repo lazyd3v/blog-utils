@@ -1,5 +1,5 @@
 import debounce from "lodash/debounce";
-import * as d3 from "./d3";
+import * as d3 from "./d3.js";
 import { feature as getTopojsonFeature } from "topojson-client";
 import * as PIXI from "pixi.js";
 import worldAtlas from "world-atlas/countries-110m.json";
@@ -11,7 +11,7 @@ import {
   COLORS,
   MARKER_RADIUS,
   ROTATION_MULTIPLIER,
-} from "./config";
+} from "./config.js";
 
 const width = 500;
 const height = 500;
