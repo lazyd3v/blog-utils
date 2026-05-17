@@ -29,6 +29,10 @@ const projection = d3.geoOrthographic().translate(center);
 const geoPathContext = createGeoPathContext(graphics);
 const path = d3.geoPath().projection(projection).context(geoPathContext);
 
+// Proxy wraps PixiJS Graphics to expose a Canvas2D-compatible API.
+// d3.geoPath expects a Canvas2D context (beginFill, lineStyle, drawCircle, endFill),
+// but PixiJS v8 uses different method names (fill, setStrokeStyle, circle).
+// This proxy translates Canvas2D-style calls from d3 into PixiJS v8 calls at runtime.
 function createGeoPathContext(graphics) {
   return new Proxy(graphics, {
     get(target, property, receiver) {
