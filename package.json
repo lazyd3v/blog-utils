@@ -17,10 +17,25 @@
     "topojson-client": "^3.1.0",
     "world-atlas": "^2.0.2"
   },
+  "overrides": {
+    "@istanbuljs/load-nyc-config": {
+      "js-yaml": "4.1.1"
+    },
+    "anymatch": {
+      "picomatch": "2.3.2"
+    },
+    "test-exclude": {
+      "minimatch": "3.1.5"
+    },
+    "minimatch@3.1.5": {
+      "brace-expansion": "1.1.14"
+    }
+  },
   "browserslist": [
     "defaults"
   ],
   "scripts": {
+    "test": "jest",
     "create-trip-metadata": "node create-trip-metadata.js",
     "build": "vite build"
   }
