@@ -1,4 +1,4 @@
-import { resolve } from "node:path";
+import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 
@@ -8,11 +8,19 @@ export default defineConfig({
   publicDir: "static",
   build: {
     outDir: "dist",
+    lib: {
+      entry: resolve(rootDir, "globe.js"),
+      name: "Globe",
+      formats: ["iife"],
+      fileName: () => "globe.js",
+    },
     rollupOptions: {
-      input: {
-        main: resolve(rootDir, "index.html"),
-        globe: resolve(rootDir, "globe.js"),
+      output: {
+        assetFileNames: "globe.[ext]",
+        chunkFileNames: "globe.js",
+        entryFileNames: "globe.js",
       },
     },
+    cssCodeSplit: false,
   },
 });
