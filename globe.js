@@ -26,42 +26,47 @@ graphics.dragging = false;
 graphics.rotationAngle = -120;
 
 const projection = d3.geoOrthographic().translate(center);
-class GeoPathContext {
-  constructor(graphics) {
-    this.g = graphics;
-    this._line = NaN;
-    this._point = 0;
-    this._radius = 4.5;
-  }
-
-  moveTo(x, y) { this.g.moveTo(x, y); }
-  lineTo(x, y) { this.g.lineTo(x, y); }
-  closePath() { this.g.closePath(); }
-  beginPath() { this.g.beginPath(); }
-  arc(x, y, r, startAngle, endAngle) { this.g.arc(x, y, r, startAngle, endAngle); }
-
-  polygonStart() { this._line = 0; }
-  polygonEnd() { this._line = NaN; }
-  lineStart() { this._point = 0; }
-  lineEnd() {
-    if (this._line === 0) this.closePath();
-    this._point = NaN;
-  }
-
-  point(x, y) {
-    switch (this._point) {
-      case 0: this.moveTo(x, y); this._point = 1; break;
-      case 1: this.lineTo(x, y); break;
-      default: this.moveTo(x + this._radius, y); this.arc(x, y, this._radius, 0, Math.PI * 2); break;
-    }
-  }
-
-  pointRadius(_) { this._radius = _; return this; }
-  result() {}
-}
-
-const geoPathContext = new GeoPathContext(graphics);
+const geoPathContext = createGeoPathContext(graphics);
 const path = d3.geoPath().projection(projection).context(geoPathContext);
+
+function createGeoPathContext(graphics) {
+  return new Proxy(graphics, {
+    get(target, property, receiver) {
+      if (property === "beginFill") {
+        return (color, alpha = 1) => {
+          target.fill({ color, alpha });
+          return receiver;
+        };
+      }
+
+      if (property === "lineStyle") {
+        return (width = 1, color = 0, alpha = 1) => {
+          if (width <= 0) {
+            target.setStrokeStyle({ width: 0, alpha: 0 });
+          } else {
+            target.setStrokeStyle({ width, color, alpha });
+          }
+          return receiver;
+        };
+      }
+
+      if (property === "drawCircle") {
+        return (x, y, radius) => {
+          target.circle(x, y, radius);
+          return receiver;
+        };
+      }
+
+      if (property === "endFill") {
+        return () => receiver;
+      }
+
+      const value = Reflect.get(target, property, receiver);
+
+      return typeof value === "function" ? value.bind(target) : value;
+    },
+  });
+}
 
 function applySize() {
   const {
@@ -152,10 +157,13 @@ function drawGlobe(metaData) {
 }
 
 function drawFeatureCollection(featureCollection, fillColor) {
-  geoPathContext.beginPath();
-  geoPathContext.g.setStrokeStyle({ width: 1, color: COLORS.border, alpha: 1 });
+  graphics
+    .beginPath()
+    .setStrokeStyle({ width: 1, color: COLORS.border, alpha: 1 });
+
   path(featureCollection);
-  geoPathContext.g.fill({ color: fillColor, alpha: 1 }).stroke();
+
+  graphics.fill({ color: fillColor, alpha: 1 }).stroke();
 }
 
 function enableRotation(metaData) {
