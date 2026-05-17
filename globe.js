@@ -26,7 +26,47 @@ graphics.dragging = false;
 graphics.rotationAngle = -120;
 
 const projection = d3.geoOrthographic().translate(center);
-const path = d3.geoPath().projection(projection).context(graphics);
+const geoPathContext = createGeoPathContext(graphics);
+const path = d3.geoPath().projection(projection).context(geoPathContext);
+
+function createGeoPathContext(graphics) {
+  return new Proxy(graphics, {
+    get(target, property, receiver) {
+      if (property === "beginFill") {
+        return (color, alpha = 1) => {
+          target.fill({ color, alpha });
+          return receiver;
+        };
+      }
+
+      if (property === "lineStyle") {
+        return (width = 1, color = 0, alpha = 1) => {
+          if (width <= 0) {
+            target.setStrokeStyle({ width: 0, alpha: 0 });
+          } else {
+            target.setStrokeStyle({ width, color, alpha });
+          }
+          return receiver;
+        };
+      }
+
+      if (property === "drawCircle") {
+        return (x, y, radius) => {
+          target.circle(x, y, radius);
+          return receiver;
+        };
+      }
+
+      if (property === "endFill") {
+        return () => receiver;
+      }
+
+      const value = Reflect.get(target, property, receiver);
+
+      return typeof value === "function" ? value.bind(target) : value;
+    },
+  });
+}
 
 function applySize() {
   const {
@@ -105,24 +145,25 @@ function drawGlobe(metaData) {
   graphics.clear();
 
   // Ocean
-  graphics.beginFill(COLORS.ocean);
-  graphics.lineStyle(0);
-  graphics.drawCircle(center[0], center[1], height / 2);
-  graphics.endFill();
+  graphics.circle(center[0], center[1], height / 2).fill({ color: COLORS.ocean });
 
   // Visited countries
-  graphics.beginFill(COLORS.visited, 1);
-  graphics.lineStyle(1, COLORS.border, 1);
-  path(visited);
-  graphics.endFill();
+  drawFeatureCollection(visited, COLORS.visited);
 
   // Not visited countries
-  graphics.beginFill(COLORS.country, 1);
-  graphics.lineStyle(1, COLORS.border, 1);
-  path(notVisited);
-  graphics.endFill();
+  drawFeatureCollection(notVisited, COLORS.country);
 
   drawMarkers(places);
+}
+
+function drawFeatureCollection(featureCollection, fillColor) {
+  graphics
+    .beginPath()
+    .setStrokeStyle({ width: 1, color: COLORS.border, alpha: 1 });
+
+  path(featureCollection);
+
+  graphics.fill({ color: fillColor, alpha: 1 }).stroke();
 }
 
 function enableRotation(metaData) {
@@ -188,10 +229,9 @@ function drawMarkers(places) {
     const radius = Math.max(possibleRadius, 0);
 
     if (radius > 0) {
-      graphics.beginFill(COLORS.marker);
-      graphics.lineStyle(0);
-      graphics.drawCircle(projectedCoords[0], projectedCoords[1], radius);
-      graphics.endFill();
+      graphics
+        .circle(projectedCoords[0], projectedCoords[1], radius)
+        .fill({ color: COLORS.marker });
     }
   });
 }
