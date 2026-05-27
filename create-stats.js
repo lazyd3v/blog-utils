@@ -35,14 +35,13 @@ function calculateDistance(trips) {
 
     if (previousTrip && trip.isNewTrip) {
       // Return leg: previousTrip → home base
-      // Use previous trip's date to determine home base (where you departed from)
-      result += getPreciseDistance(
-        getBaseCityCoordinates(previousTrip.date),
-        {
-          latitude: previousTrip.lat,
-          longitude: previousTrip.long,
-        }
-      );
+      // Use current trip's date so relocations are implicitly modeled:
+      // e.g. Paris→Stockholm transition uses Stockholm base (1547 km),
+      // which is the actual relocation path, not Paris→Kazan (3211 km).
+      result += getPreciseDistance(getBaseCityCoordinates(trip.date), {
+        latitude: previousTrip.lat,
+        longitude: previousTrip.long,
+      });
     }
 
     if (trip.isNewTrip) {
