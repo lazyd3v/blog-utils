@@ -628,6 +628,14 @@ export const TRIPS = [
     long: 7.3618,
   },
   {
+    countryId: "250",
+    city: "Montpellier",
+    date: "09-09-2021",
+    lat: 43.6107,
+    long: 3.8767,
+    isNewTrip: true,
+  },
+  {
     countryId: "352",
     city: "Luxembourg",
     date: "18-09-2021",
@@ -641,14 +649,6 @@ export const TRIPS = [
     date: "25-09-2021",
     lat: 50.8729,
     long: 4.3093,
-    isNewTrip: true,
-  },
-  {
-    countryId: "250",
-    city: "Montpellier",
-    date: "09-09-2021",
-    lat: 43.6107,
-    long: 3.8767,
     isNewTrip: true,
   },
 

@@ -34,13 +34,19 @@ function calculateDistance(trips) {
     const previousTrip = trips[i - 1];
 
     if (previousTrip && trip.isNewTrip) {
-      result += getPreciseDistance(getBaseCityCoordinates(trip.date), {
-        latitude: previousTrip.lat,
-        longitude: previousTrip.long,
-      });
+      // Return leg: previousTrip → home base
+      // Use previous trip's date to determine home base (where you departed from)
+      result += getPreciseDistance(
+        getBaseCityCoordinates(previousTrip.date),
+        {
+          latitude: previousTrip.lat,
+          longitude: previousTrip.long,
+        }
+      );
     }
 
     if (trip.isNewTrip) {
+      // Outbound leg: home base → current trip
       result += getPreciseDistance(getBaseCityCoordinates(trip.date), {
         latitude: trip.lat,
         longitude: trip.long,
@@ -51,6 +57,18 @@ function calculateDistance(trips) {
         { latitude: trip.lat, longitude: trip.long }
       );
     }
+  }
+
+  // Final return leg: last trip → home base
+  const lastTrip = trips[trips.length - 1];
+  if (lastTrip) {
+    result += getPreciseDistance(
+      getBaseCityCoordinates(lastTrip.date),
+      {
+        latitude: lastTrip.lat,
+        longitude: lastTrip.long,
+      }
+    );
   }
 
   return Math.round(result / 1000);
