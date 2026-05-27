@@ -70,7 +70,7 @@ describe("Create statistics", () => {
     const { totalDistanceKm } = createStats(data);
 
     // got similar results when calculating by hand
-    expect(totalDistanceKm).toEqual(17598);
+    expect(totalDistanceKm).toEqual(17662);
   });
 
   it("should calculate days stats correctly", () => {

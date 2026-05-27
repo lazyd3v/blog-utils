@@ -34,6 +34,10 @@ function calculateDistance(trips) {
     const previousTrip = trips[i - 1];
 
     if (previousTrip && trip.isNewTrip) {
+      // Return leg: previousTrip → home base
+      // Use current trip's date so relocations are implicitly modeled:
+      // e.g. Paris→Stockholm transition uses Stockholm base (1547 km),
+      // which is the actual relocation path, not Paris→Kazan (3211 km).
       result += getPreciseDistance(getBaseCityCoordinates(trip.date), {
         latitude: previousTrip.lat,
         longitude: previousTrip.long,
@@ -41,6 +45,7 @@ function calculateDistance(trips) {
     }
 
     if (trip.isNewTrip) {
+      // Outbound leg: home base → current trip
       result += getPreciseDistance(getBaseCityCoordinates(trip.date), {
         latitude: trip.lat,
         longitude: trip.long,
@@ -51,6 +56,18 @@ function calculateDistance(trips) {
         { latitude: trip.lat, longitude: trip.long }
       );
     }
+  }
+
+  // Final return leg: last trip → home base
+  const lastTrip = trips[trips.length - 1];
+  if (lastTrip) {
+    result += getPreciseDistance(
+      getBaseCityCoordinates(lastTrip.date),
+      {
+        latitude: lastTrip.lat,
+        longitude: lastTrip.long,
+      }
+    );
   }
 
   return Math.round(result / 1000);
