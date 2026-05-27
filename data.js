@@ -1125,6 +1125,14 @@ export const TRIPS = [
     long: 4.88969,
     isNewTrip: true,
   },
+  {
+    countryId: "620",
+    city: "Funchal",
+    date: "22-05-2026",
+    lat: 32.66568,
+    long: -16.92547,
+    isNewTrip: true,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
