@@ -1133,6 +1133,14 @@ export const TRIPS = [
     long: -16.92547,
     isNewTrip: true,
   },
+  {
+    countryId: "250",
+    city: "Chamonix",
+    date: "03-07-2026",
+    lat: 45.92375,
+    long: 6.86933,
+    isNewTrip: true,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
