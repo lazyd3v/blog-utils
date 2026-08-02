@@ -636,7 +636,7 @@ export const TRIPS = [
     isNewTrip: true,
   },
   {
-    countryId: "352",
+    countryId: "442",
     city: "Luxembourg",
     date: "18-09-2021",
     lat: 49.6116,
@@ -1179,7 +1179,7 @@ export const COUNTRY_EMOJI = {
   674: "🇸🇲",
   724: "🇪🇸",
   492: "🇲🇨",
-  352: "🇱🇺",
+  442: "🇱🇺",
   "056": "🇧🇪",
   191: "🇭🇷",
   484: "🇲🇽",
