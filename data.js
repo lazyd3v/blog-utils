@@ -1141,6 +1141,28 @@ export const TRIPS = [
     long: 6.86933,
     isNewTrip: true,
   },
+  {
+    countryId: "208",
+    city: "Copenhagen",
+    date: "06-08-2026",
+    lat: 55.676098,
+    long: 12.568337,
+    isNewTrip: true,
+  },
+  {
+    countryId: "208",
+    city: "Aarhus",
+    date: "08-08-2026",
+    lat: 56.156740,
+    long: 10.210760,
+  },
+  {
+    countryId: "208",
+    city: "Billund",
+    date: "09-08-2026",
+    lat: 55.733490,
+    long: 9.107850,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
