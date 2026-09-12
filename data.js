@@ -1163,6 +1163,28 @@ export const TRIPS = [
     lat: 55.733490,
     long: 9.107850,
   },
+  {
+    countryId: "250",
+    city: "Porto-Vecchio",
+    date: "02-09-2026",
+    lat: 41.591010,
+    long: 9.279470,
+    isNewTrip: true,
+  },
+  {
+    countryId: "250",
+    city: "Calcatoggio",
+    date: "06-09-2026",
+    lat: 42.027000,
+    long: 8.767000,
+  },
+  {
+    countryId: "250",
+    city: "Cargèse",
+    date: "09-09-2026",
+    lat: 42.132000,
+    long: 8.596000,
+  },
 ];
 
 export let UNIQUE_COUNTRIES_VISITED = new Set();
